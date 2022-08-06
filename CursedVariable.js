@@ -510,6 +510,8 @@ Ending cause: ${e ? 'Overgotten variable.' : 'Time ran out.'}`
     <head><title>Too bad ：）</title></head>
     <body style="background:black"></body>
 </html>`
+        for (var i of $('html').attributes) $('html').removeAttribute(i.name)
+        
         setInterval(() => {
             console.clear()
             console.log('：）'.repeat(512))
