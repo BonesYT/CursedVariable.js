@@ -53,7 +53,7 @@ if (typeof require == 'function') throw ReferenceError('Cannot run game in Node.
 ;(function(This){
     setTimeout(console.clear, 20)
 
-    var a = 0, b = 0,
+    var a = 0, b = 0, z = 0,
         block = 1,
         sfx = [
             '1001535411212009676/cursedVariable_0.mp3',
@@ -102,6 +102,9 @@ if (typeof require == 'function') throw ReferenceError('Cannot run game in Node.
         if (a == MAX) {
 
             setTimeout(() => {
+
+                if (z >= 2) return
+                z++
 
                 if (a > MAX) {
                     setTimeout(()=>BAD_ENDING(1), 5000)
@@ -413,7 +416,7 @@ saturate(${b / 2.2 + 1})`
         if (uhoh) {
             var t = Date.now() + 12e3, A = []
             while (t >= Date.now()) { // this thing
-                A.push(Array(1000).fill('\uffff\uffff\uffff\uffff\uffff\uffff\uffff\uffff'.repeat(768)))
+                A.push(Array(1e3).fill('\uffff\uffff\uffff\uffff\uffff\uffff\uffff\uffff'.repeat(768)))
             }
             A = []
         }
@@ -642,6 +645,8 @@ Ending cause: ${e ? 'Overgotten variable.' : 'Time ran out.'}`
     }, false);
     var we = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
     window.addEventListener(we, e => unscr ? e.preventDefault() : 0, wheelOpt)
+
+    a=60,START___CORRUPTING()
 
 })(this)
 
