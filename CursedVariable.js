@@ -125,7 +125,7 @@ if (typeof require == 'function') throw ReferenceError('Cannot run game in Node.
                 )
     
                 var i = setInterval(() => {
-                    if (COMPL) {
+                    if (COMPL | FAIL) {
                         clearInterval(i)
                         return
                     } 
@@ -503,12 +503,13 @@ Ending cause: ${e ? 'Overgotten variable.' : 'Time ran out.'}`
         b.target = '_blank'
         b.download = 'END.txt'
         b.click();
-
-        document.querySelector('body').innerHTML = ''
-        $b.background = 'black'
+    
         e = true
-
-        $('head > title').innerHTML = 'Too bad ：）'
+        $('html').innerHTML = `\
+<html>
+    <head><title>Too bad ：）</title></head>
+    <body style="background:black"></body>
+</html>`
         setInterval(() => {
             console.clear()
             console.log('：）'.repeat(512))
@@ -646,6 +647,8 @@ Ending cause: ${e ? 'Overgotten variable.' : 'Time ran out.'}`
     }, false);
     var we = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
     window.addEventListener(we, e => unscr ? e.preventDefault() : 0, wheelOpt)
+
+    mfunc()
 
 })(this)
 
