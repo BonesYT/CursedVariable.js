@@ -402,6 +402,7 @@ saturate(${b / 2.2 + 1})`
     async function endingFreeze(uhoh=0) {
 
         sfx[5].pause()
+        sfx[3].pause()
         var r = fr(32) + 32,
             a = SAMPL.map(v => v.splice(AUDIO.currentTime * 8e3, r)) // SEAMLESSLY GLITCH THE AUDIO
 
