@@ -650,8 +650,6 @@ Ending cause: ${e ? 'Overgotten variable.' : 'Time ran out.'}`
     var we = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
     window.addEventListener(we, e => unscr ? e.preventDefault() : 0, wheelOpt)
 
-    mfunc()
-
 })(this)
 
 /*
